@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 public class FizzBuzzTest {
 
@@ -38,9 +39,11 @@ public class FizzBuzzTest {
 	@Test
 	public void MultipleOfThreeReturnsFizz() {
 		List<String> result = fizzBuzz();
-		assertThat(result.get(6-1)).isEqualTo("Fizz");
-		assertThat(result.get(9-1)).isEqualTo("Fizz");
-		assertThat(result.get(12-1)).isEqualTo("Fizz");
+		assertAll(() -> {
+			assertThat(result.get(6-1)).isEqualTo("Fizz");
+			assertThat(result.get(9-1)).isEqualTo("Fizz");
+			assertThat(result.get(12-1)).isEqualTo("Fizz");
+		});
 	}
 
 	private List<String> fizzBuzz() {
