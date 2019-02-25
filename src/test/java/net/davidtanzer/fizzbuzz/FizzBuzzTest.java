@@ -35,6 +35,14 @@ public class FizzBuzzTest {
 		assertThat(result.get(3-1)).isEqualTo("Fizz");
 	}
 
+	@Test
+	public void MultipleOfThreeReturnsFizz() {
+		List<String> result = fizzBuzz();
+		assertThat(result.get(6-1)).isEqualTo("Fizz");
+		assertThat(result.get(9-1)).isEqualTo("Fizz");
+		assertThat(result.get(12-1)).isEqualTo("Fizz");
+	}
+
 	private List<String> fizzBuzz() {
 		return IntStream.range(1, 100)
 				.mapToObj(this::x)
@@ -42,7 +50,7 @@ public class FizzBuzzTest {
 	}
 
 	private String x(int i) {
-		if (i == 3) {
+		if (i % 3 == 0) {
 			return "Fizz";
 		}
 		return Integer.toString(i);
