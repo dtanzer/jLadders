@@ -40,9 +40,10 @@ public class FizzBuzzTest {
 	public void MultipleOfThreeReturnsFizz() {
 		List<String> result = fizzBuzz();
 		assertAll(() -> {
-			assertThat(result.get(6-1)).isEqualTo("Fizz");
-			assertThat(result.get(9-1)).isEqualTo("Fizz");
-			assertThat(result.get(12-1)).isEqualTo("Fizz");
+			IntStream.iterate(3, i -> i+3)
+					.limit(33)
+					.filter(i -> i%5!=0)
+					.forEach(i -> assertThat(result.get(i-1)).isEqualTo("Fizz"));
 		});
 	}
 
