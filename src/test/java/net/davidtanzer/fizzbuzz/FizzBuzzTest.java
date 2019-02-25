@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
@@ -22,6 +24,6 @@ public class FizzBuzzTest {
 	}
 
 	private List<String> fizzBuzz() {
-		return Arrays.asList("1", "2");
+		return IntStream.range(1, 3).mapToObj(Integer::toString).collect(Collectors.toList());
 	}
 }
