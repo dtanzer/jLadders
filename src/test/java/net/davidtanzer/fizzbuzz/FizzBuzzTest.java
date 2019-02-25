@@ -51,6 +51,15 @@ public class FizzBuzzTest {
 		assertThat(result.get(5-1)).isEqualTo("Buzz");
 	}
 
+	@Test
+	public void MultipleOfFiveReturnsBuzz() {
+		List<String> result = fizzBuzz();
+		assertAll(IntStream.iterate(5, i -> i+5).
+				limit(19)
+				.filter(i -> i%3!=0)
+				.mapToObj(i -> () -> assertThat(result.get(i-1)).isEqualTo("Buzz")));
+	}
+
 	private List<String> fizzBuzz() {
 		return IntStream.range(1, 100)
 				.mapToObj(this::x)
