@@ -1,3 +1,10 @@
+.classpath
+.project
+.gradle
+.idea
+.settings
+gradle/wrapper/*.jar
+
 # Compiled class file
 *.class
 
