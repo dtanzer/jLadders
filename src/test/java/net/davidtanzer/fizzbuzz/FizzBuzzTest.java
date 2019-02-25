@@ -45,6 +45,12 @@ public class FizzBuzzTest {
 				.mapToObj(i -> () -> assertThat(result.get(i-1)).isEqualTo("Fizz")));
 	}
 
+	@Test
+	public void FiveReturnsBuzz() {
+		List<String> result = fizzBuzz();
+		assertThat(result.get(5-1)).isEqualTo("Buzz");
+	}
+
 	private List<String> fizzBuzz() {
 		return IntStream.range(1, 100)
 				.mapToObj(this::x)
@@ -54,6 +60,9 @@ public class FizzBuzzTest {
 	private String x(int i) {
 		if (i % 3 == 0) {
 			return "Fizz";
+		}
+		if (i % 5 == 0) {
+			return "Buzz";
 		}
 		return Integer.toString(i);
 	}
