@@ -14,13 +14,13 @@ class FizzBuzzTest {
 	@Test
 	void OneReturnsOne() {
 		List<String> result = fizzBuzz();
-		assertThat(result.get(1-1)).isEqualTo("1");
+		assertThat(result.get(1 - 1)).isEqualTo("1");
 	}
 
 	@Test
 	void TwoReturnsTwo() {
 		List<String> result = fizzBuzz();
-		assertThat(result.get(2-1)).isEqualTo("2");
+		assertThat(result.get(2 - 1)).isEqualTo("2");
 	}
 
 	@Test
@@ -32,31 +32,31 @@ class FizzBuzzTest {
 	@Test
 	void ThreeReturnsFizz() {
 		List<String> result = fizzBuzz();
-		assertThat(result.get(3-1)).isEqualTo("Fizz");
+		assertThat(result.get(3 - 1)).isEqualTo("Fizz");
 	}
 
 	@Test
 	void MultipleOfThreeReturnsFizz() {
 		List<String> result = fizzBuzz();
-		assertAll(IntStream.iterate(3, i -> i+3)
-				.limit(33)
-				.filter(i -> i%5!=0)
-				.mapToObj(i -> () -> assertThat(result.get(i-1)).isEqualTo("Fizz")));
+		assertAll(IntStream.iterate(3, i -> i + 3)
+				.takeWhile(i -> i <= 99)
+				.filter(i -> i % 5 != 0)
+				.mapToObj(i -> () -> assertThat(result.get(i - 1)).isEqualTo("Fizz")));
 	}
 
 	@Test
 	void FiveReturnsBuzz() {
 		List<String> result = fizzBuzz();
-		assertThat(result.get(5-1)).isEqualTo("Buzz");
+		assertThat(result.get(5 - 1)).isEqualTo("Buzz");
 	}
 
 	@Test
 	void MultipleOfFiveReturnsBuzz() {
 		List<String> result = fizzBuzz();
-		assertAll(IntStream.iterate(5, i -> i+5).
+		assertAll(IntStream.iterate(5, i -> i + 5).
 				limit(19)
-				.filter(i -> i%3!=0)
-				.mapToObj(i -> () -> assertThat(result.get(i-1)).isEqualTo("Buzz")));
+				.filter(i -> i % 3 != 0)
+				.mapToObj(i -> () -> assertThat(result.get(i - 1)).isEqualTo("Buzz")));
 	}
 
 	private List<String> fizzBuzz() {
