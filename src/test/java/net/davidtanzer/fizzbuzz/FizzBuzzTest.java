@@ -14,13 +14,13 @@ public class FizzBuzzTest {
 	@Test
 	public void OneReturnsOne() {
 		List<String> result = fizzBuzz();
-		assertThat(result.get(0)).isEqualTo("1");
+		assertThat(result.get(1-1)).isEqualTo("1");
 	}
 
 	@Test
 	public void TwoReturnsTwo() {
 		List<String> result = fizzBuzz();
-		assertThat(result.get(1)).isEqualTo("2");
+		assertThat(result.get(2-1)).isEqualTo("2");
 	}
 
 	@Test
@@ -29,9 +29,22 @@ public class FizzBuzzTest {
 		assertThat(result.size()).isEqualTo(99);
 	}
 
+	@Test
+	public void ThreeReturnsFizz() {
+		List<String> result = fizzBuzz();
+		assertThat(result.get(3-1)).isEqualTo("Fizz");
+	}
+
 	private List<String> fizzBuzz() {
-		return IntStream.range(1, 100).
-				mapToObj(Integer::toString).
-				collect(Collectors.toList());
+		return IntStream.range(1, 100)
+				.mapToObj(this::x)
+				.collect(Collectors.toList());
+	}
+
+	private String x(int i) {
+		if (i == 3) {
+			return "Fizz";
+		}
+		return Integer.toString(i);
 	}
 }
