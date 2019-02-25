@@ -39,12 +39,10 @@ public class FizzBuzzTest {
 	@Test
 	public void MultipleOfThreeReturnsFizz() {
 		List<String> result = fizzBuzz();
-		assertAll(() -> {
-			IntStream.iterate(3, i -> i+3)
-					.limit(33)
-					.filter(i -> i%5!=0)
-					.forEach(i -> assertThat(result.get(i-1)).isEqualTo("Fizz"));
-		});
+		assertAll(IntStream.iterate(3, i -> i+3)
+				.limit(33)
+				.filter(i -> i%5!=0)
+				.mapToObj(i -> () -> assertThat(result.get(i-1)).isEqualTo("Fizz")));
 	}
 
 	private List<String> fizzBuzz() {
