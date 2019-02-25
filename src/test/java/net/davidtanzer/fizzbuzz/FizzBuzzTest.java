@@ -53,8 +53,8 @@ class FizzBuzzTest {
 	@Test
 	void MultipleOfFiveReturnsBuzz() {
 		List<String> result = fizzBuzz();
-		assertAll(IntStream.iterate(5, i -> i + 5).
-				limit(19)
+		assertAll(IntStream.iterate(5, i -> i + 5)
+				.takeWhile(i -> i <= 99)
 				.filter(i -> i % 3 != 0)
 				.mapToObj(i -> () -> assertThat(result.get(i - 1)).isEqualTo("Buzz")));
 	}
