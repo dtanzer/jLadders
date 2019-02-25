@@ -72,6 +72,7 @@ class FizzBuzzTest {
 		if (i % 5 == 0) {
 			return "Buzz";
 		}
+		// etc
 		return Integer.toString(i);
 	}
 }
