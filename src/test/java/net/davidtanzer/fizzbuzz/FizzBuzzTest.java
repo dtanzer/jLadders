@@ -23,7 +23,15 @@ public class FizzBuzzTest {
 		assertThat(result.get(1)).isEqualTo("2");
 	}
 
+	@Test
+	public void Returns99Lines() {
+		List<String> result = fizzBuzz();
+		assertThat(result.size()).isEqualTo(99);
+	}
+
 	private List<String> fizzBuzz() {
-		return IntStream.range(1, 3).mapToObj(Integer::toString).collect(Collectors.toList());
+		return IntStream.range(1, 100).
+				mapToObj(Integer::toString).
+				collect(Collectors.toList());
 	}
 }
