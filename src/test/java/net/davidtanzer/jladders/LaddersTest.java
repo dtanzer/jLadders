@@ -9,6 +9,5 @@ public class LaddersTest {
 
 	@Test
 	void changeMe() {
-		fail("Change Me!");
 	}
 }
